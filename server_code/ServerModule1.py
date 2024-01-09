@@ -32,6 +32,13 @@ def return_sitempap():
 <loc>{url}{hash_getter(article)}</loc>
 </url>
 '''
+    sitemap+=f'''
+<url>
+<loc>{url}#!NewTicket</loc>
+</url>  
+'''
+    #If you have added any other forms that need indexing, make sure to add them too
+    
     sitemap+='</urlset>'
     blob=anvil.BlobMedia('text/xml',bytes(sitemap.encode()),name='sitemap.xml')
     return blob

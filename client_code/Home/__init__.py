@@ -39,22 +39,24 @@ class Home(HomeTemplate):
         self.link_1.set_event_handler('click',self.link_1_click)
         
     def navigate(self,*args):
-        hash=get_url_hash()
+        hash=get_url_hash().replace('!','')
         self.main.clear()
         if 'article' in hash:
             data.load_article_from_hash(hash)
             
-        elif hash=='!NewTicket':
+        elif hash=='NewTicket':
             newticket=NewTicket()
             self.main.add_component(newticket)
-            data.scroll_into_view(newticket.back,'start')
+            data.scroll_into_view(newticket,'start')
             data.change_meta('Need to get in touch with us for any support regarding Geeke? Fill this form and we will get back to you as soon as possible','Contact us - Geeke')
-            
+
+        #If you add some other forms, make sure to add them here too for navigation
+        
         else:
             self.main.add_component(self.front_articles_page)
             self.front_articles_page.load_articles()
             data.change_meta('Need help on Geeke? Access all our articles or directly get in touch with us for any issue.','Geeke Support')
-
+            
     def form_show(self, **event_args):
         self.navigate()
 
