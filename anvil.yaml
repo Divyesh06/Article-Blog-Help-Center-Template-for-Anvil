@@ -7,7 +7,7 @@ services:
 startup: {type: form, module: Home}
 package_name: Geeke_Support
 allow_embedding: false
-name: Template for Help Center / Blog etc.
+name: Template for Articles/Blog/Help Center
 runtime_options:
   version: 2
   client_version: '3'
