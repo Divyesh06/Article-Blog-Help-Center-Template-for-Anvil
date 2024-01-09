@@ -18,7 +18,7 @@ _________________________________________
 Github Repository:
 
 
-To ask any questions, report issues or offer suggestions, please do so on the GitHub repository - https://github.com/Divyesh06/Article-Blog-Help-Center-Template-for-Anvil
+To ask any questions, report issues or offer suggestions, you can start a discussion on https://github.com/Divyesh06/Article-Blog-Help-Center-Template-for-Anvil/discussions/
 _________________________________________
 
 Note on Icons:
