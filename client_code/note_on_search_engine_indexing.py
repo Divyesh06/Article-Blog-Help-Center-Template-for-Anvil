@@ -1,3 +1,5 @@
+#Feel free to delete this once you are done reading and no longer require it
+
 """
 This template is designed with the specific purpose of making sure that all your pages are indexed on Google or other search engines easily.
 While Single Page Apps built with Anvil always face difficulty with indexing. 

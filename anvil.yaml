@@ -16,17 +16,13 @@ runtime_options:
 metadata: {title: Template for Articles/Blog/Help Center, description: Template for Articles/Blog/Help Center,
   logo_img: 'asset:Logo.jpg'}
 startup_form: null
-native_deps: {head_html: '<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/divyesh06/Geeke/bootstrap-icons.css"
-    lazyload>
+native_deps: {head_html: '<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/divyesh06/Geeke/bootstrap-icons.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap"
-    rel="stylesheet" lazyload>
+    rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
-    rel="stylesheet" lazyload>
-
-    <meta name="google-site-verification" content="esaO2E3tYTvuKwsIK7m9BSfUV9mcU0cRCkrNsSRP4pg"
-    />'}
+    rel="stylesheet">'}
 db_schema:
   articles:
     client: none
