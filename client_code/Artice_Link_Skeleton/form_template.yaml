@@ -1,0 +1,79 @@
+container:
+  type: HtmlTemplate
+  properties:
+    tooltip: ''
+    background: theme:white
+    foreground: ''
+    border: ''
+    visible: true
+    role: [article-comp, card-hover, card]
+    html: ''
+components:
+- type: LinearPanel
+  properties: {spacing_above: small, spacing_below: medium, background: '', foreground: '',
+    border: '', visible: true, role: null, tooltip: ''}
+  name: linear_panel_1
+  layout_properties: {slot: default}
+  components:
+  - type: Link
+    properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
+      spacing_above: none, icon_align: left, col_widths: '{}', spacing_below: none,
+      italic: false, background: '', bold: false, underline: false, icon: ''}
+    name: link_1
+    layout_properties: {slot: default}
+    components:
+    - name: image_1
+      properties:
+        display_mode: fill_width
+        spacing_below: medium
+        source: ''
+        background: rgba(1,1,1,0.1)
+        height: '200'
+        role: [skeleton-image]
+      type: Image
+      layout_properties: {grid_position: 'GNLXXC,ZEDMIN'}
+    - type: Label
+      properties:
+        role: [nopadding-comp, skeleton]
+        align: left
+        tooltip: ''
+        border: ''
+        foreground: theme:primary
+        visible: true
+        text: ''
+        font_size: 18
+        font: Poppins
+        spacing_above: small
+        icon_align: left
+        spacing_below: none
+        italic: false
+        background: ''
+        bold: true
+        underline: false
+        icon: ''
+      name: title
+      layout_properties: {grid_position: 'AEUALH,ETKZAI', full_width_row: true}
+    - type: Label
+      properties:
+        role: [nopadding-comp, subtitle, skeleton]
+        align: left
+        tooltip: ''
+        border: ''
+        foreground: theme:black
+        visible: true
+        text: ''
+        font_size: 16
+        font: Rubik
+        spacing_above: small
+        icon_align: left
+        spacing_below: none
+        italic: false
+        background: ''
+        bold: false
+        underline: false
+        icon: ''
+      name: subtitle
+      layout_properties: {grid_position: 'EYFDXX,VEANOG', full_width_row: true}
+    event_bindings: {}
+is_package: true

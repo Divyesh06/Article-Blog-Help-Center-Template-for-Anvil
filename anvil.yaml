@@ -1,0 +1,36 @@
+correct_dependency_ids: {}
+dependencies: []
+services:
+- source: /runtime/services/tables.yml
+  client_config: {enable_v2: true}
+  server_config: {}
+startup: {type: form, module: Home}
+package_name: Geeke_Support
+allow_embedding: false
+name: Clone of Geeke Support
+runtime_options:
+  version: 2
+  client_version: '3'
+  server_version: python3-full
+  server_spec: {base: python310-minimal}
+metadata: {title: Geeke Support, description: 'Need help on Geeke? Access all our
+    articles or directly get in touch with us for any issue.', logo_img: 'asset:Geeke
+    Favicon.png'}
+startup_form: null
+native_deps: {head_html: '<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/divyesh06/Geeke/bootstrap-icons.css"
+    lazyload>
+
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap"
+    rel="stylesheet" lazyload>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet" lazyload>
+
+    <meta name="google-site-verification" content="esaO2E3tYTvuKwsIK7m9BSfUV9mcU0cRCkrNsSRP4pg"
+    />'}
+db_schema:
+  articles:
+    client: none
+    server: full
+    columns: []
+    title: articles

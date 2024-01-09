@@ -1,0 +1,154 @@
+container:
+  type: HtmlTemplate
+  properties: {tooltip: '', background: '', foreground: '', border: '', visible: true,
+    role: null, html: "\n<canvas id=\"bgCanvas\" style='height: calc(100%);width:100%;'></canvas>\n\
+      <canvas id=\"terCanvas\"style='display:none'</canvas>\n\n<style>\n\ncanvas{position:absolute;top:0;left:0;overflow-x:\
+      \ hidden !important; }  </style>\n  <script>\n     (function() {\n    var requestAnimationFrame\
+      \ = window.requestAnimationFrame || window.mozRequestAnimationFrame || \n\t\t\
+      \t\t\t\t\t\t  window.webkitRequestAnimationFrame || window.msRequestAnimationFrame\
+      \ || function( callback ){\n                window.setTimeout(callback, 1000\
+      \ / 60);\n              };\n\t  window.requestAnimationFrame = requestAnimationFrame;\n\
+      \t})();\n\n\t// Terrain stuff.\n\tvar terrain = document.getElementById(\"terCanvas\"\
+      ),\n\t\tbackground = document.getElementById(\"bgCanvas\"),\n\t\tterCtx = terrain.getContext(\"\
+      2d\"),\n\t\tbgCtx = background.getContext(\"2d\"),\n\t\twidth = background.offsetWidth,\n\
+      \t\theight = background.offsetHeight;\n    (height < 400)?height = 400:height;\n\
+      \n\tterrain.width = background.width = width;\n\tterrain.height = background.height\
+      \ = height;\n\n\t// Some random points\n\tvar points = [],\n\t\tdisplacement\
+      \ = 140,\n\t\tpower = Math.pow(2,Math.ceil(Math.log(width)/(Math.log(2))));\n\
+      \t\n\t// set the start height and end height for the terrain\n\tpoints[0] =\
+      \ (height - (Math.random()*height/2))-displacement;\n\tpoints[power] = (height\
+      \ - (Math.random()*height/2))-displacement;\n\n    bgCtx.lineWidth = 2\n\tterCtx.lineTo(width,terrain.height);\n\
+      \tterCtx.lineTo(0,terrain.height);\n\tterCtx.lineTo(0,points[0]);\n\tterCtx.fill();\n\
+      \n\n\t// Second canvas used for the stars\n\tbgCtx.fillStyle = '#001627';\n\t\
+      bgCtx.fillRect(0,0,width,height);\n     \n\n\t// stars\n\tfunction Star(options){\n\
+      \        if (width>768) {\n\t\tthis.size = Math.random()*2.4;\n        }\n \
+      \       else {\n            this.size=Math.random()*1.65;\n        }\n\t\tthis.speed\
+      \ = Math.random()*.1;\n\t\tthis.x = options.x;\n\t\tthis.y = options.y;\n\t\
+      }\n\n\tStar.prototype.reset = function(){\n\t\t        if (width>768) {\n\t\t\
+      this.size = Math.random()*2.4;\n        }\n        else {\n            this.size=Math.random()*1.65;\n\
+      \        }\n\t\tthis.speed = Math.random()*.1;\n\t\tthis.x = width;\n\t\tthis.y\
+      \ = Math.random()*height;\n\t}\n\t\n\tStar.prototype.update = function(){\n\t\
+      \tthis.x-=this.speed;\n\t\tif(this.x<0){\n\t\t  this.reset();\n\t\t}else{\n\t\
+      \t  bgCtx.fillRect(this.x,this.y,this.size,this.size); \n\t\t}\n\t}\n\t\n\t\
+      function ShootingStar(){\n\t\tthis.reset();\n\t}\n\t\n\tShootingStar.prototype.reset\
+      \ = function(){\n\t\tthis.x = Math.random()*width;\n\t\tthis.y = 0;\n\t\tthis.len\
+      \ = (Math.random()*80)+10;\n\t\tthis.speed = (Math.random()*10)+6;\n\t\tthis.size\
+      \ = (Math.random()*1)+0.7;\n    // this is used so the shooting stars arent\
+      \ constant\n\t\tthis.waitTime =  new Date().getTime() + (Math.random()*3000)+500;\n\
+      \t\tthis.active = false;\n\t}\n\t\n\tShootingStar.prototype.update = function(){\n\
+      \t\tif(this.active){\n\t\t\tthis.x-=this.speed;\n\t\t\tthis.y+=this.speed;\n\
+      \t\t\tif(this.x<0 || this.y >= height){\n\t\t\t  this.reset();\n\t\t\t}else{\n\
+      \t\t\tbgCtx.lineWidth = this.size;\n\t\t\t\tbgCtx.beginPath();\n\t\t\t\tbgCtx.moveTo(this.x,this.y);\n\
+      \t\t\t\tbgCtx.lineTo(this.x+this.len, this.y-this.len);\n\t\t\t\tbgCtx.stroke();\n\
+      \t\t\t}\n\t\t}else{\n\t\t\tif(this.waitTime < new Date().getTime()){\n\t\t\t\
+      \tthis.active = true;\n\t\t\t}\t\t\t\n\t\t}\n\t}\n\n\tvar entities = [];\n\t\
+      \n\t// init the stars\n\tfor(var i=0; i < height; i++){\n\t\tentities.push(new\
+      \ Star({x:Math.random()*width, y:Math.random()*height}));\n\t}\n  \n\t// Add\
+      \ 2 shooting stars that just cycle.\n\tentities.push(new ShootingStar());\n\t\
+      entities.push(new ShootingStar());\n    entities.push(new ShootingStar());\n\
+      \tentities.push(new ShootingStar());\n\t\n\t//animate background\n\tfunction\
+      \ animate(){\n\t\tbgCtx.fillStyle = '#001627';\n\t\tbgCtx.fillRect(0,0,width,height);\n\
+      \t\tbgCtx.fillStyle = '#ffffff';\n\t\tbgCtx.strokeStyle = '#ffffff';\n\n\t\t\
+      var entLen = entities.length;\n\t  \n\t\twhile(entLen--){\n\t\t\tentities[entLen].update();\n\
+      \t\t}\n\t\t\n\t\trequestAnimationFrame(animate);\n\t}\n\tanimate();\n  </script>\n\
+      \n "}
+components:
+- type: ColumnPanel
+  properties: {role: bg, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile,
+    col_spacing: medium, spacing_above: none, col_widths: '{}', spacing_below: small,
+    background: '#001627'}
+  name: column_panel_1
+  layout_properties: {grid_position: 'JYIFQI,ICWXSG', full_width_row: true}
+  components:
+  - type: FlowPanel
+    properties: {role: null, spacing: medium, align: left, tooltip: '', border: '',
+      foreground: '', visible: true, spacing_above: large, spacing_below: large, background: ''}
+    name: flow_panel_4
+    layout_properties: {slot: top-left-btn, grid_position: 'RHTVLJ,BQWDJC', full_width_row: true}
+    components:
+    - type: Link
+      properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: '', font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
+        spacing_above: small, icon_align: left, col_widths: '{}', spacing_below: small,
+        italic: false, background: '', bold: false, underline: false, icon: ''}
+      name: link_1
+      layout_properties: {expand: true, width: null}
+      components:
+      - type: FlowPanel
+        properties: {role: null, spacing: small, align: left, tooltip: '', border: '',
+          foreground: '', visible: true, spacing_above: none, spacing_below: none,
+          background: ''}
+        name: flow_panel_6
+        layout_properties: {grid_position: 'MIJOWH,TTCILY'}
+        components:
+        - type: Image
+          properties: {role: circle, vertical_align: center, height: '48', tooltip: '',
+            border: '', foreground: '', visible: true, display_mode: zoom_to_fill,
+            spacing_above: none, source: 'https://cdn.jsdelivr.net/gh/divyesh06/Geeke/Geeke96x96.png',
+            spacing_below: none, background: 'theme:primary', horizontal_align: center}
+          name: image_1
+          layout_properties: {width: 48, expand: false}
+        - type: Label
+          properties: {role: nopadding-comp, align: left, tooltip: '', border: '',
+            foreground: 'theme:white', visible: true, text: Geeke, font_size: 30,
+            font: '', spacing_above: small, icon_align: left, spacing_below: medium,
+            italic: false, background: '', bold: true, underline: false, icon: ''}
+          name: label_2
+          layout_properties: {expand: true, width: null}
+      event_bindings: {click: link_1_click}
+    - type: Button
+      properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+        foreground: 'theme:black', visible: true, text: Create Ticket, font_size: 20,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: 'theme:white', bold: false, underline: false, icon: 'fa:plus'}
+      name: ticket
+      layout_properties: {}
+      event_bindings: {click: ticket_click}
+  - type: Label
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:white',
+      visible: true, text: Help Center, font_size: 45, font: Poppins, spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: label_1
+    layout_properties: {grid_position: 'YBUVUZ,TDSGZA'}
+  - type: FlowPanel
+    properties: {role: search-bar, vertical_align: full, spacing: tiny, align: left,
+      tooltip: '', border: '', foreground: 'theme:black', visible: true, spacing_above: medium,
+      spacing_below: small, background: 'theme:white'}
+    name: flow_panel_1
+    layout_properties: {grid_position: 'CGQHZP,FPGLHM'}
+    components:
+    - type: Spacer
+      properties: {visible: true, spacing_above: small, spacing_below: none, height: 32,
+        tooltip: ''}
+      name: spacer_4_copy
+      layout_properties: {width: 1, expand: false}
+    - type: Button
+      properties: {role: nopadding-comp, align: center, tooltip: '', border: '', enabled: true,
+        foreground: 'theme:cyan', visible: true, text: '', font_size: 14, font: '',
+        spacing_above: none, icon_align: left, spacing_below: none, italic: false,
+        background: '', bold: false, underline: false, icon: 'fa:search'}
+      name: button_1
+      layout_properties: {grid_position: 'OYSVSZ,NRADVM'}
+      event_bindings: {}
+    - type: Spacer
+      properties: {height: 32, spacing_below: none}
+      name: spacer_4
+      layout_properties: {width: 6}
+    - type: TextBox
+      properties: {role: nopadding-comp, align: left, hide_text: false, tooltip: '',
+        placeholder: Search for Articles, border: none, enabled: true, foreground: 'theme:black',
+        visible: true, text: '', font_size: 19, font: '', spacing_above: small, type: text,
+        spacing_below: none, italic: false, background: '', bold: false, underline: false}
+      name: search_bar
+      layout_properties: {expand: true, width: null}
+      event_bindings: {}
+    - type: Button
+      properties: {role: nopadding-comp, align: center, tooltip: '', border: '', enabled: true,
+        foreground: 'theme:black', visible: false, text: '', font_size: 15, font: '',
+        spacing_above: none, icon_align: left, spacing_below: none, italic: false,
+        background: '', bold: false, underline: false, icon: 'fa:x-lg'}
+      name: search_cancel
+      layout_properties: {grid_position: 'OYSVSZ,NRADVM'}
+      event_bindings: {}
+is_package: true

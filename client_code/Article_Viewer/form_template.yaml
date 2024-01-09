@@ -1,0 +1,212 @@
+container:
+  type: HtmlTemplate
+  properties: {tooltip: '', background: '', foreground: '', border: '', visible: true,
+    role: null, html: ''}
+  event_bindings: {show: form_show}
+components:
+- type: ColumnPanel
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: none, col_widths: '{}', spacing_below: small,
+    background: ''}
+  name: column_panel_1
+  layout_properties: {slot: default}
+  components:
+  - type: Button
+    properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
+      foreground: 'theme:primary', visible: true, text: Back to Home, font_size: 16,
+      font: '', spacing_above: large, icon_align: left, spacing_below: large, italic: false,
+      background: '', bold: false, underline: false, icon: 'fa:arrow-left'}
+    name: back
+    layout_properties:
+      col_widths: {}
+      grid_position: BAIXSF,NQBCWC
+    event_bindings: {click: back_click}
+  - name: timer_1
+    properties: {interval: 0.001}
+    type: Timer
+    layout_properties: {grid_position: 'SYIDWT,TYBPGA'}
+    event_bindings: {tick: timer_1_tick}
+  - type: LinearPanel
+    properties: {spacing_above: small, spacing_below: small, background: '', foreground: '',
+      border: '', visible: true, role: articlebg, tooltip: ''}
+    name: flow_panel_1
+    layout_properties: {grid_position: 'SYIDWT,VUXUHU'}
+    components:
+    - type: Link
+      properties: {role: articlebg-title, url: '', align: center, tooltip: '', border: '',
+        foreground: 'theme:black', visible: true, text: '', font_size: 40, wrap_on: mobile,
+        font: Poppins, col_spacing: medium, spacing_above: small, icon_align: left,
+        col_widths: '{}', spacing_below: small, italic: false, background: 'rgba(255,255,255,0.85)',
+        bold: true, underline: false, icon: ''}
+      name: title
+      layout_properties: {expand: true, width: null}
+      components:
+      - type: Label
+        properties: {role: nopadding-comp2, align: center, tooltip: '', border: '',
+          foreground: '', visible: true, text: '', font_size: 18, font: '', spacing_above: none,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: subtitle
+        layout_properties: {grid_position: 'BPMLZQ,IIYPWO'}
+      event_bindings: {click: title_click}
+  - type: Spacer
+    properties: {visible: true, spacing_above: small, spacing_below: small, height: '25',
+      tooltip: ''}
+    name: spacer_1
+    layout_properties: {grid_position: 'ELGSAY,XDKTPK'}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: 'theme:black',
+      visible: true, text: '', font_size: 18, font: '', spacing_above: small, icon_align: left,
+      spacing_below: small, italic: false, background: '', bold: false, underline: false,
+      icon: ''}
+    name: date
+    layout_properties: {grid_position: 'TAJXMY,SKWFAY'}
+  - type: Spacer
+    properties: {visible: true, spacing_above: small, spacing_below: small, height: '25',
+      tooltip: ''}
+    name: spacer_1_copy
+    layout_properties:
+      col_widths: {}
+      grid_position: FQGVKY,FCOWKT
+  - type: ColumnPanel
+    properties: {col_widths: '{}'}
+    name: skeletals
+    layout_properties: {grid_position: 'HUIPQW,RHKIVQ'}
+    components:
+    - type: Label
+      properties: {role: skeleton-long, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: '', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_2
+      layout_properties: {grid_position: 'UYFVTI,VAIMAC'}
+    - type: Label
+      properties: {role: skeleton-long, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: '', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_2_copy
+      layout_properties:
+        col_widths: {}
+        grid_position: TNXCMQ,OLDJRD
+    - type: Label
+      properties: {role: skeleton-long, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: '', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_2_copy_2
+      layout_properties:
+        col_widths: {}
+        grid_position: QRXCUT,QWRWLB
+    - type: Label
+      properties: {role: skeleton-long, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: '', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_2_copy_3
+      layout_properties:
+        col_widths: {}
+        grid_position: YQQEJW,TAQKGD
+    - type: Label
+      properties: {role: skeleton-long, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: '', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_2_copy_4
+      layout_properties:
+        col_widths: {}
+        grid_position: KXFYBU,YGSUMW
+    - type: Label
+      properties: {role: skeleton-long, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: '', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_2_copy_5
+      layout_properties:
+        col_widths: {}
+        grid_position: HWMVKK,JMYWXT
+    - type: Label
+      properties: {role: skeleton-long, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: '', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_2_copy_6
+      layout_properties:
+        col_widths: {}
+        grid_position: EUUARQ,IZQFVQ
+    - type: Label
+      properties: {role: skeleton-long, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: '', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_2_copy_7
+      layout_properties:
+        col_widths: {}
+        grid_position: VJGTZB,EFWJSD
+  - type: LinearPanel
+    properties: {spacing_above: small, spacing_below: small, background: '', foreground: '',
+      border: '', visible: false, role: null, tooltip: ''}
+    name: data
+    layout_properties: {grid_position: 'QVINEH,HWMEOM'}
+    components:
+    - type: LinearPanel
+      properties: {spacing_above: small, spacing_below: none, background: '', foreground: '',
+        border: '', visible: true, role: card, tooltip: ''}
+      name: index
+      layout_properties: {grid_position: 'SZUZPH,IGXZTS'}
+      components:
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: 'theme:black',
+          visible: true, text: Table of Contents, font_size: 20, font: Poppins, spacing_above: none,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+          underline: false, icon: ''}
+        name: label_1
+        layout_properties: {grid_position: 'SNUHLP,BKNPKD'}
+    - type: RichText
+      properties: {role: rich-text, align: left, tooltip: '', enable_slots: true,
+        border: '', foreground: 'theme:black', visible: true, font_size: 18, content: '',
+        font: '', spacing_above: large, spacing_below: none, data: null, background: '',
+        format: markdown}
+      name: article
+      layout_properties: {grid_position: 'PKATPG,MGIPRG', slot: default}
+      components: []
+    - type: RichText
+      properties: {role: rich-text, align: left, tooltip: '', enable_slots: true,
+        border: '', foreground: '', visible: true, font_size: null, content: '---',
+        font: '', spacing_above: small, spacing_below: small, data: null, background: '',
+        format: markdown}
+      name: rich_text_1
+      layout_properties: {grid_position: 'FPWBKQ,ECLCRV'}
+    - type: RichText
+      properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
+        foreground: 'theme:black', visible: true, font_size: 18, content: '## New
+          to Geeke?
+
+          &nbsp;
+
+          Ever imagined a paradise for all Book Lovers? We have!
+
+          &nbsp;
+
+          Geeke is an online platform that connects Readers and Writers  in the most
+          awesome way. You can find free books to read, write your own and interact
+          with a global community of book lovers.
+
+          &nbsp;', font: '', spacing_above: medium, spacing_below: small, data: null,
+        background: 'theme:background', format: markdown}
+      name: article_next
+      layout_properties:
+        col_widths: {}
+        grid_position: QDGMSX,KBXTBC
+      components:
+      - type: Button
+        properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
+          foreground: 'theme:white', visible: true, text: '  Check it out   ', font_size: 18,
+          font: Poppins, spacing_above: medium, icon_align: right, spacing_below: large,
+          italic: false, background: 'theme:primary', bold: false, underline: false,
+          icon: 'fa:arrow-right'}
+        name: button_1
+        layout_properties: {slot: default, grid_position: 'DIUXTL,OWSYNQ'}
+        event_bindings: {click: button_1_click}
+  event_bindings: {show: column_panel_1_show}
+is_package: true
