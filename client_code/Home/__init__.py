@@ -36,7 +36,7 @@ class Home(HomeTemplate):
         hash=get_url_hash()
         self.main.clear()
         if 'article' in hash:
-            data.load_article(hash['article'].split('-')[-1])
+            data.load_article_from_hash(hash)
             
         elif hash=='!NewTicket':
             newticket=NewTicket()

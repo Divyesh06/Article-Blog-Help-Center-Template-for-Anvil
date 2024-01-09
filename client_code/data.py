@@ -8,25 +8,18 @@ fetch_parameters=query.fetch_only('title','subtitle','category','bg')
 articles_cache={}
 current_form=None
 
-def id_numbers(row_id):
-    return row_id.replace('[','').replace(']','').replace(',','_')
-
 def scroll_into_view(comp,pos='start'):
     get_dom_node(comp).scrollIntoView({"behavior":"smooth","block":pos})
     
-def hash_setter(row):
+def hash_getter(row):
     title=row['title']
     row_id=row.get_id()
+    row_id=row_id.replace('[','').replace(']','').replace(',','_')
     hash_url=f"!?article={title.replace(' ','-')}-{id_numbers(row_id)}"
     return hash_url
-
-def url_setter(row):
-    title=row['title']
-    row_id=row.get_id()
-    hash_url=f"_/api/articles/{title.replace(' ','-')}-{id_numbers(row_id)}"
-    return hash_url
     
-def load_article(row_id):
+def load_article_from_hash(hash):
+    row_id=f"[{hash['article'].split('-')[-1].replace('_',',')}]"
     article=articles_cache.get(row_id)
     if not article:
         article=app_tables.articles.get_by_id(f"[{row_id.replace('_',',')}]",fetch_parameters)
