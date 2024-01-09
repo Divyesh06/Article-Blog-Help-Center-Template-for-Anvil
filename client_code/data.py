@@ -3,6 +3,7 @@ from anvil.tables import app_tables,query
 from .Article_Viewer import Article_Viewer
 from anvil.js import get_dom_node
 from anvil.js.window import jQuery,document
+from anvil import *
 
 fetch_parameters=query.fetch_only('title','subtitle','category','bg')
 articles_cache={}
@@ -15,14 +16,14 @@ def hash_getter(row):
     title=row['title']
     row_id=row.get_id()
     row_id=row_id.replace('[','').replace(']','').replace(',','_')
-    hash_url=f"!?article={title.replace(' ','-')}-{id_numbers(row_id)}"
+    hash_url=f"!?article={title.replace(' ','-')}-{row_id}"
     return hash_url
     
 def load_article_from_hash(hash):
     row_id=f"[{hash['article'].split('-')[-1].replace('_',',')}]"
     article=articles_cache.get(row_id)
     if not article:
-        article=app_tables.articles.get_by_id(f"[{row_id.replace('_',',')}]",fetch_parameters)
+        article=app_tables.articles.get_by_id(row_id,fetch_parameters)
         articles_cache[row_id]=article
     form=current_form
     form.main.clear()
