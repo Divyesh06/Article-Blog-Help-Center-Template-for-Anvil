@@ -7,15 +7,14 @@ services:
 startup: {type: form, module: Home}
 package_name: Geeke_Support
 allow_embedding: false
-name: Clone of Geeke Support
+name: Template for Help Center / Blog etc.
 runtime_options:
   version: 2
   client_version: '3'
   server_version: python3-full
   server_spec: {base: python310-minimal}
 metadata: {title: Geeke Support, description: 'Need help on Geeke? Access all our
-    articles or directly get in touch with us for any issue.', logo_img: 'asset:Geeke
-    Favicon.png'}
+    articles or directly get in touch with us for any issue.', logo_img: 'asset:Logo.jpg'}
 startup_form: null
 native_deps: {head_html: '<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/divyesh06/Geeke/bootstrap-icons.css"
     lazyload>

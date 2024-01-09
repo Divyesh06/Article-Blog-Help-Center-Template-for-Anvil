@@ -6,7 +6,7 @@ from .. import data
 from functools import partial
 from anvil.tables import app_tables,query
 from ..NewTicket import NewTicket
-from ..Front_Articles import Front_Articles
+from ..Front_Articles_Page import Front_Articles_Page
 from ..Article_Search_Results import Article_Search_Results
 from anvil.js import window,import_from
 
@@ -15,7 +15,7 @@ class Home(HomeTemplate):
     def __init__(self, **properties):
         self.init_components(**properties)
         window.addEventListener("hashchange", self.navigate)
-        self.front_articles=Front_Articles()
+        self.front_articles_page=Front_Articles_Page()
         self.results={}
         self.current_tab='F'
         get_dom_node(self.main).style.minHeight='75vh' #Ensure that the footer remains at bottom'
@@ -45,8 +45,8 @@ class Home(HomeTemplate):
             data.change_meta('Need to get in touch with us for any support regarding Geeke? Fill this form and we will get back to you as soon as possible','Contact us - Geeke')
             
         else:
-            self.main.add_component(self.front_articles)
-            self.front_articles.load_articles()
+            self.main.add_component(self.front_articles_page)
+            self.front_articles_page.load_articles()
             data.change_meta('Need help on Geeke? Access all our articles or directly get in touch with us for any issue.','Geeke Support')
 
     def form_show(self, **event_args):
@@ -61,14 +61,11 @@ class Home(HomeTemplate):
         else:
             self.search_cancel.visible=False
             self.main.clear()
-            self.main.add_component(self.front_articles)
+            self.main.add_component(self.front_articles_page)
 
     def search_cancel_click(self, **event_args):
         self.search_bar.text=''
         self.search_bar_change()
-
-    def back_click(self, **event_args):
-        set_url_hash('')
 
     def ticket_click(self, **event_args):
         set_url_hash('#!NewTicket')

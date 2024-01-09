@@ -50,15 +50,14 @@ class Article_Viewer(Article_ViewerTemplate):
                 self.flow_panel_1.background=bg
             self.title.text=self.article_data['title']
             self.subtitle.text=self.article_data['subtitle']
-            links=[link for link in get_dom_node(self.article).getElementsByTagName('a')]
-            for link in links:
-                link.target='_blank'
+            
             for skeletal in self.skeletals.get_components():
                 get_dom_node(skeletal).style.width=f'{random.randrange(80,100)}%'
+                
             self.date.text=f'Date: {self.article_data["date"].strftime("%d %B %Y")}'
             self.article.content=self.article_data['cont']
             self.html_parser()
-            self.contents={i:i.innerText for i in get_dom_node(self.article).getElementsByTagName('h2')}
+            self.contents={i:i.innerText for i in get_dom_node(self.article).getElementsByTagName('h1')}
             for key,value in self.contents.items():
                 l=Link(text=value,tag=key,font_size=18,icon='fa:dot',foreground='theme:primary',spacing_above='none',spacing_below='none',icon_align='left_edge')
                 l.set_event_handler('click',self.jump)

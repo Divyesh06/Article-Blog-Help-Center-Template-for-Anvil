@@ -840,7 +840,7 @@ https://stackoverflow.com/questions/30533055/calculating-shadow-values-for-all-m
 }
 
 .anvil-role-bg {
-    background-image: url(_/theme/Runway%202023-12-03T12_22_50.381Z%20Expand%20Image.jpg);
+    background-image: url(_/theme/background.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -858,13 +858,6 @@ https://stackoverflow.com/questions/30533055/calculating-shadow-values-for-all-m
 
 .anvil-role-circle {
     border-radius: 50%;
-}
-
-.anvil-role-rich-text h2 {
-    font-weight: 600;
-    font-family: Poppins;
-    color: %color:primary%;
-    font-size: 25px;
 }
 
 .anvil-role-rounded-image img{
@@ -900,10 +893,23 @@ https://stackoverflow.com/questions/30533055/calculating-shadow-values-for-all-m
   }
 }
 
-.anvil-role-rich-text h3 {
+
+.anvil-role-rich-text :is(h1, h2, h3, h4, h5, h6){
+    font-weight: 600;
     font-family: Poppins;
     color: %color:primary%;
+}
+
+.anvil-role-rich-text h1 {
+    font-size: 25px;
+}
+
+.anvil-role-rich-text h2 {
     font-size: 22px;
+}
+
+.anvil-role-rich-text h3 {
+    font-size: 18px;
 }
 
 .anvil-role-rich-text hr {
@@ -913,6 +919,10 @@ https://stackoverflow.com/questions/30533055/calculating-shadow-values-for-all-m
 
 .anvil-role-rich-text a {
     color: %color:primary%;
+}
+
+.anvil-role-rich-text img {
+    max-width: 100%;
 }
 
 .anvil-role-articlebg {

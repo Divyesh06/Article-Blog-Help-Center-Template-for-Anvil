@@ -13,28 +13,11 @@ components:
       foreground: '', visible: true, spacing_above: medium, spacing_below: none, background: ''}
     name: tabs
     layout_properties: {grid_position: 'YNXSZX,KPOZEL'}
-    components:
-    - name: f
-      properties: {text: Articles, background: 'theme:primary', foreground: 'theme:white',
-        font_size: 20, role: tab, spacing_below: none, font: ''}
-      type: Button
-      layout_properties: {}
-      event_bindings: {click: switch_tab}
-    - name: g
-      properties:
-        text: Guidelines
-        background: theme:white
-        foreground: theme:primary
-        font_size: 20
-        border: ''
-        role: [unselected, tab]
-        spacing_below: none
-      type: Button
-      layout_properties: {}
-      event_bindings: {click: switch_tab}
+    components: []
+    event_bindings: {show: tabs_show}
   - name: desc
-    properties: {spacing_below: small, font_size: 16, spacing_above: medium, text: 'Access
-        all announcements, content and tutorials related to Geeke', font: ''}
+    properties: {spacing_below: small, font_size: 16, spacing_above: medium, text: '',
+      font: ''}
     type: Label
     layout_properties: {grid_position: 'UEEBGK,ENDVQO'}
   - name: skeletals
