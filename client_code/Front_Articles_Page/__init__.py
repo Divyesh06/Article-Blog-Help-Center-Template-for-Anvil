@@ -1,6 +1,5 @@
 from ._anvil_designer import Front_Articles_PageTemplate
 from anvil import *
-from functools import partial
 from anvil.js import get_dom_node
 from .. import data
 from ..Artice_Link import Artice_Link
@@ -9,7 +8,6 @@ from ..Artice_Link_Skeleton import Artice_Link_Skeleton
 
 class Front_Articles_Page(Front_Articles_PageTemplate):
     def __init__(self, **properties):
-        # Set Form properties and Data Bindings.
         self.init_components(**properties)
         self.cached_results={}
         self.categories=[

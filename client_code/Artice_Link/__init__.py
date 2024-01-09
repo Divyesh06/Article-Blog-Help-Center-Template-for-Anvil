@@ -11,7 +11,7 @@ class Artice_Link(Artice_LinkTemplate):
         self.subtitle.text=self.item['subtitle']
         self.image_1.source=self.item['bg']
         unique_hash=data.hash_getter(self.item)
-        self.link_1.url='#'+unique_hash #Doing this so that to help wit + Users will be able to open link in new tab if they want
+        self.link_1.url='#'+unique_hash #Doing this so that to help witH Internal Linking + Users will be able to open link in new tab if they want
         get_dom_node(self.link_1).onclick=self.open_article
         data.articles_cache[unique_hash]=self.item
         

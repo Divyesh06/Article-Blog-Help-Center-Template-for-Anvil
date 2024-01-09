@@ -7,15 +7,12 @@ However, this is not compulsory at all.
 
 from ._anvil_designer import HomeTemplate
 from anvil import *
-from ..Artice_Link import Artice_Link
 from anvil.js import get_dom_node,window
 from .. import data
-from functools import partial
 from anvil.tables import app_tables,query
 from ..NewTicket import NewTicket
 from ..Front_Articles_Page import Front_Articles_Page
 from ..Article_Search_Results import Article_Search_Results
-from anvil.js import window,import_from
 
 class Home(HomeTemplate):
     
