@@ -523,8 +523,7 @@ a:hover, a:active {
 }
 
 .modal-footer .btn {
-  background-color: transparent;
-  color: %color:Primary 500%;
+  background-color: %color:primary%;
 }
 .modal-footer .btn, .modal-footer .btn:focus, .modal-footer .btn:active {
   box-shadow: none;

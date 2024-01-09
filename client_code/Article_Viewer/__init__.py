@@ -23,13 +23,6 @@ class Article_Viewer(Article_ViewerTemplate):
 
     def html_parser(self):
         import re
-        '''
-        If markdown is not able to offer you what you need, you can also insert an html code inside your markdown and let the parser convert it to HTML.
-        This needs to be of the following pattern 
-        -HTMLSTART-
-        your html code here
-        -HTMLEND-
-        '''
         html_codes=[]
         def replace_html_slot(match):
             html_codes.append(match.group(1))

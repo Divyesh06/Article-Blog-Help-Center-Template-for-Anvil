@@ -5,7 +5,6 @@ from anvil.js import get_dom_node
 
 class Artice_Link(Artice_LinkTemplate):
     def __init__(self, **properties):
-        # Set Form properties and Data Bindings.
         self.init_components(**properties)
         self.item=properties['item']
         self.title.text=self.item['title']

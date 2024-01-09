@@ -21,7 +21,9 @@ class Front_Articles_Page(Front_Articles_PageTemplate):
             "name":"Guidelines",
             "desc":"See our policies and guidelines"
         },                        
-        ] #Change this to suit the categories you require
+        ] 
+        
+        #Change this according to the categories you require
 
         for cateogry in self.categories:
             tab=Button(text=cateogry['name'],font_size=20,tag=cateogry)

@@ -45,7 +45,7 @@ components:
             italic: false, background: '', bold: true, underline: false, icon: ''}
           name: label_2
           layout_properties: {expand: true, width: null}
-      event_bindings: {click: link_1_click}
+      event_bindings: {}
     - type: Button
       properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
         foreground: 'theme:black', visible: true, text: Create Ticket, font_size: 20,
@@ -53,7 +53,7 @@ components:
         background: 'theme:white', bold: false, underline: false, icon: 'fa:plus'}
       name: ticket
       layout_properties: {}
-      event_bindings: {click: ticket_click}
+      event_bindings: {}
   - type: Label
     properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:white',
       visible: true, text: Help Center, font_size: 45, font: Poppins, spacing_above: small,

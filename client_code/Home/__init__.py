@@ -1,3 +1,10 @@
+'''
+This template is free to use for all kinds of usage (personal and commercial)
+
+If this template helps you save some time and effort, you can consider supporting me at https://www.buymeacoffee.com/geeke.app 
+However, this is not compulsory at all.
+'''
+
 from ._anvil_designer import HomeTemplate
 from anvil import *
 from ..Artice_Link import Artice_Link
@@ -17,7 +24,6 @@ class Home(HomeTemplate):
         window.addEventListener("hashchange", self.navigate)
         self.front_articles_page=Front_Articles_Page()
         self.results={}
-        self.current_tab='F'
         get_dom_node(self.main).style.minHeight='75vh' #Ensure that the footer remains at bottom'
         data.current_form=self
         self.search_bar=self.header.search_bar

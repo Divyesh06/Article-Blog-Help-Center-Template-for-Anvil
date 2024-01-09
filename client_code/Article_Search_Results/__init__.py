@@ -8,14 +8,12 @@ import anvil.server
 
 class Article_Search_Results(Article_Search_ResultsTemplate):
     def __init__(self, **properties):
-        # Set Form properties and Data Bindings.
         self.init_components(**properties)
         self.query=properties['query']
         self.search_title.text=f'Results for "{self.query}"'
         self.added_results=[]
         for i in range(20):
             self.articles_skeleton.add_component(Artice_Link_Skeleton())
-        # Any code you write here will run before the form opens.
 
     def form_show(self, **event_args):
       with anvil.server.no_loading_indicator:
