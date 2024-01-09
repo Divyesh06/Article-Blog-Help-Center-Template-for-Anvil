@@ -5,12 +5,20 @@ This template is free to use for all kinds of usage (personal and commercial)
 
 If this template helps you save some time and effort, you can consider supporting me at https://www.buymeacoffee.com/geeke.app 
 However, this is not compulsory at all.
+
+________________________________________
+
+Sample Articles: 
+
+
+This app currently contains all of the articles from my original website (https://support.geeke.app) as sample articles. Feel free to delete them later
+
 _________________________________________
 
 Github Repository:
 
 
-To ask any questions, report issues or offer suggestions, please do so on the GitHub repository - 
+To ask any questions, report issues or offer suggestions, please do so on the GitHub repository - https://github.com/Divyesh06/Article-Blog-Help-Center-Template-for-Anvil
 _________________________________________
 
 Note on Icons:
